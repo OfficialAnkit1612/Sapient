@@ -1,0 +1,44 @@
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: Product Catalog API
+  jpa:
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        search:
+          backend:
+            lucene_version: LATEST
+  h2:
+    console:
+      enabled: true
+
+logging:
+  level:
+    com.sapients.product_catalog_api: DEBUG
+    org.springframework: INFO
+    org.hibernate: WARN
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: application.log
+    path: /var/log/myapp/
+  logback:
+    rolling-policy:
+      max-file-size: 10MB
+      max-history: 30
+      total-size-cap: 1GB
+
+external:
+  api:
+    url: https://dummyjson.com/products

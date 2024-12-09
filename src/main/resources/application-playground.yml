@@ -1,0 +1,17 @@
+server:
+  port: 8081
+  address: 127.0.0.1
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:playground
+    username: sa-playground
+    password: password
+    driver-class-name: org.h2.Driver
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 10
+      auto-commit: true
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
